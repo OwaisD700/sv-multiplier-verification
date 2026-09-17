@@ -23,7 +23,4 @@ module mult4(
     assign sum[7] = tmp ^ p3[3];
 
 
-
-
-
 endmodule

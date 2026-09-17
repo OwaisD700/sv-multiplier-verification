@@ -41,10 +41,15 @@ Module hierarchy:
 
 ```
 mult4
-├── mult2  x4      2-bit multiply-accumulate (a*b + cin)
-│   └── adder      1-bit full adder
-├── adder4         4-bit ripple adder
-└── adder3         3-bit ripple adder
+├── mult2  x4          2-bit multiply-accumulate (a*b + cin)
+│   └── adder          1-bit full adder
+├── adder4             4-bit ripple adder
+│   └── adder2  x2     2-bit ripple adder
+│       └── adder
+└── adder3             3-bit ripple adder
+    ├── adder2
+    │   └── adder
+    └── adder
 ```
 
 `mult2` takes a carry-in alongside its two operands, computing `a*b + cin`. This lets single carry bits from lower stages be absorbed directly into a partial product instead of needing another adder.
